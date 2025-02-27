@@ -10,6 +10,7 @@ import { generateModule } from './commands/generate-module.js';
 import { generateMicrofrontend } from './commands/generate-microfrontend.js';
 import { generateWebsiteMicrofrontend } from './commands/generate-website-microfrontend.js';
 import { executor } from './commands/executor.js';
+import { interact } from './commands/interact.js';
 
 // Create CLI program
 const program = new Command();
@@ -63,6 +64,12 @@ program
   .command('executor')
   .description('Execute module generation from a JSON definition file')
   .action(executor);
+
+// Interactive file modifier command
+program
+  .command('interact')
+  .description('Interactively modify files using AI')
+  .action(interact);
 
 // Parse command line arguments
 program.parse(process.argv);

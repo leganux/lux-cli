@@ -156,6 +156,30 @@ This will:
 - Generate backend and/or frontend code based on your choice
 - Support for custom module definitions
 
+### Interactive File Modifier
+
+Modify existing files using AI-powered suggestions:
+
+```bash
+lux interact
+```
+
+This will:
+- Ask for the full path of a file to modify
+- Verify the file exists
+- Take a description of the desired changes
+- Use AI to modify the file according to your description
+- Save the changes automatically
+- Continue asking for more files to modify
+- Type 'exit' when you're done
+
+The interactive modifier helps you:
+- Make targeted changes to existing files
+- Leverage AI for code modifications
+- Maintain code structure and style
+- Make multiple changes in one session
+- Preserve existing imports and dependencies
+
 ## Project Structure
 
 Generated projects follow this structure:

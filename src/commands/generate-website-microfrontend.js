@@ -19,7 +19,7 @@ async function getConfig() {
   }
 }
 
-async function callAI(prompt, model = 'gpt-3.5-turbo') {
+async function callAI(prompt, model = 'gpt-4o') {
   const config = await getConfig();
   
   try {
