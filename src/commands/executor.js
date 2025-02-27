@@ -1,12 +1,15 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
-import { join, resolve } from 'path';
+import { join, resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import {
   ensureDirectoryExists,
   executeGeneratorScript,
   checkModuleExists
 } from '../utils/project.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export async function executor() {
   console.log(chalk.cyan('\n⚡ Module Generator Executor\n'));
@@ -82,7 +85,7 @@ export async function executor() {
         } else {
           spinner.start('Generating backend module...');
           await executeGeneratorScript(
-            resolve(process.cwd(), 'generator-cli.js'),
+            resolve(__dirname, '../../generator-cli.js'),
             jsonPath,
             { cwd: backendPath }
           );
@@ -91,7 +94,7 @@ export async function executor() {
       } else {
         spinner.start('Generating backend module...');
         await executeGeneratorScript(
-          resolve(process.cwd(), 'generator-cli.js'),
+          resolve(__dirname, '../../generator-cli.js'),
           jsonPath,
           { cwd: backendPath }
         );
@@ -117,7 +120,7 @@ export async function executor() {
         } else {
           spinner.start('Generating frontend module...');
           await executeGeneratorScript(
-            resolve(process.cwd(), 'create-microfrontend.js'),
+            resolve(__dirname, '../../create-microfrontend.js'),
             jsonPath,
             { cwd: frontendPath }
           );
@@ -126,7 +129,7 @@ export async function executor() {
       } else {
         spinner.start('Generating frontend module...');
         await executeGeneratorScript(
-          resolve(process.cwd(), 'create-microfrontend.js'),
+          resolve(__dirname, '../../create-microfrontend.js'),
           jsonPath,
           { cwd: frontendPath }
         );

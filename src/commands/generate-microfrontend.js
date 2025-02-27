@@ -1,8 +1,11 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
-import { join, resolve } from 'path';
+import { join, resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { generateModuleRunner } from '../utils/ai.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 import {
   ensureDirectoryExists,
   saveModuleRunner,
@@ -90,7 +93,7 @@ export async function generateMicrofrontend() {
     // Generate frontend module
     spinner.start(`Generating microfrontend...`);
     await executeGeneratorScript(
-      resolve(process.cwd(), 'create-microfrontend.js'),
+      resolve(__dirname, '../../create-microfrontend.js'),
       runnerPath,
       { cwd: frontendPath }
     );

@@ -1,8 +1,11 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
-import { join, resolve } from 'path';
+import { join, resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 import { promises as fs } from 'fs';
 import { homedir } from 'os';
 import fetch from 'node-fetch';

@@ -1,8 +1,11 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
-import { join, resolve } from 'path';
+import { join, resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { generateModulesList, generateModuleRunner } from '../utils/ai.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 import {
   checkGitInstalled,
   downloadAndExtract,
@@ -111,7 +114,7 @@ export async function generateProject() {
       // Generate backend module
       spinner.start(`Generating backend module for ${moduleName}...`);
       await executeGeneratorScript(
-        resolve(process.cwd(), 'generator-cli.js'),
+        resolve(__dirname, '../../generator-cli.js'),
         runnerPath,
         { cwd: backendPath }
       );
@@ -132,7 +135,7 @@ export async function generateProject() {
 
       spinner.start(`Generating frontend module for ${moduleName}...`);
       await executeGeneratorScript(
-        resolve(process.cwd(), 'create-microfrontend.js'),
+        resolve(__dirname, '../../create-microfrontend.js'),
         runnerPath,
         { cwd: frontendPath }
       );
