@@ -1,0 +1,33 @@
+{
+  "name": "leganux-lux-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for generating MEVN stack projects, views, and API modules",
+  "type": "module",
+  "bin": {
+    "lux": "./src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "mevn",
+    "vue",
+    "express",
+    "mongodb",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.15",
+    "ora": "^8.0.1",
+    "axios": "^1.6.7",
+    "extract-zip": "^2.0.1",
+    "openai": "^4.28.0",
+    "dotenv": "^16.4.5"
+  }
+}
